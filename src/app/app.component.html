@@ -1,0 +1,34 @@
+<div class="container custom-container-2 tableMargin">
+  <!-- Show it when there is no employee -->
+  <div class="no-data text-center" *ngIf="processedData.length == 0">
+    <p>There is no data received from api yet!</p>
+  </div>
+  <!-- Employees list table, it hides when there is no employee -->
+  <div *ngIf="processedData.length !== 0">
+    <h3 class="mb-3 text-center">www.alphavantage.co List</h3>
+    <div class="col-md-12">
+      <table class="table table-bordered border-primary ">
+        <thead>
+          <tr>
+            <th>DateTime</th>
+            <th>Open</th>
+            <th>High</th>
+            <th>low</th>
+            <th>Close</th>
+            <th>Volume</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let alphaval of processedData">
+            <td>{{ alphaval.dateTime }}</td>
+            <td>{{ alphaval.open }}</td>
+            <td>{{ alphaval.high }}</td>
+            <td>{{ alphaval.low }}</td>
+            <td>{{ alphaval.close }}</td>
+            <td>{{ alphaval.volume }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
